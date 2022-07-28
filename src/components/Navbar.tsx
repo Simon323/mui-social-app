@@ -6,9 +6,12 @@ import {
   InputBase,
   Badge,
   Avatar,
+  MenuItem,
+  Menu,
 } from "@mui/material";
 import { LaptopChromebook, Mail, Notifications } from "@mui/icons-material";
 import avatar from "assets/1.jpg";
+import { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -41,6 +44,7 @@ const UserBox = styled("div")(({ theme }) => ({
 }));
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -62,9 +66,10 @@ const Navbar = () => {
             sx={{ width: 30, height: 30 }}
             alt="Remy Sharp"
             src={avatar}
+            onClick={() => setOpen(true)}
           />
         </Icons>
-        <UserBox>
+        <UserBox onClick={() => setOpen(true)}>
           <Avatar
             sx={{ width: 30, height: 30 }}
             alt="Remy Sharp"
@@ -73,6 +78,25 @@ const Navbar = () => {
           <Typography component="span">Simon</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        // anchorEl={anchorEl}
+        open={open}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
