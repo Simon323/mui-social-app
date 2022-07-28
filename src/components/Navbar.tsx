@@ -22,11 +22,22 @@ const Search = styled("div")(({ theme }) => ({
   width: "40%",
 }));
 
-const Icons = styled("div")((theme) => ({
-  // backgroundColor: "white",
-  display: "flex",
+const Icons = styled("div")(({ theme }) => ({
+  display: "none",
   gap: "20px",
   alignItems: "center",
+  [theme.breakpoints.up("sm")]: {
+    display: "flex",
+  },
+}));
+
+const UserBox = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  [theme.breakpoints.up("sm")]: {
+    display: "none",
+  },
 }));
 
 const Navbar = () => {
@@ -53,6 +64,14 @@ const Navbar = () => {
             src={avatar}
           />
         </Icons>
+        <UserBox>
+          <Avatar
+            sx={{ width: 30, height: 30 }}
+            alt="Remy Sharp"
+            src={avatar}
+          />
+          <Typography component="span">Simon</Typography>
+        </UserBox>
       </StyledToolbar>
     </AppBar>
   );
