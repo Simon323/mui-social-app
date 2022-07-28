@@ -9,7 +9,7 @@ import {
   MenuItem,
   Menu,
 } from "@mui/material";
-import { LaptopChromebook, Mail, Notifications } from "@mui/icons-material";
+import { AcUnit, Mail, Notifications } from "@mui/icons-material";
 import avatar from "assets/1.jpg";
 import { useState } from "react";
 
@@ -51,7 +51,7 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           Lorem Ipsum
         </Typography>
-        <LaptopChromebook sx={{ display: { xs: "block", sm: "none" } }} />
+        <AcUnit sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="search..." />
         </Search>
