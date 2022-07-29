@@ -14,17 +14,19 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  PaletteMode,
   Switch,
 } from "@mui/material";
+import { Dispatch, FC, SetStateAction } from "react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  setMode: Dispatch<SetStateAction<PaletteMode>>;
+  mode: PaletteMode;
+}
+
+const Sidebar: FC<SidebarProps> = ({ setMode, mode }) => {
   return (
-    <Box
-      // bgcolor="red"
-      flex={1}
-      p={2}
-      sx={{ display: { xs: "none", sm: "block" } }}
-    >
+    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed">
         <List>
           <ListItem disablePadding>
@@ -80,7 +82,9 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ModeNight />
               </ListItemIcon>
-              <Switch defaultChecked />
+              <Switch
+                onChange={() => setMode(mode === "light" ? "dark" : "light")}
+              />
             </ListItemButton>
           </ListItem>
         </List>
